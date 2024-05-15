@@ -105,8 +105,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('carrentalolympia@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('car_rentalAr123')
+EMAIL_HOST_USER ='carrentalolympia@gmail.com'
+EMAIL_HOST_PASSWORD = 'mqvn azhx uooo hgjd'
 
 # settings.py
 

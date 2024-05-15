@@ -11,6 +11,8 @@ import requests
 from .models import BusyDate
 import json
 from django.http import JsonResponse
+from django.core.mail import send_mail
+from django.conf import settings
 
 def booking_form(request):
     if request.method == 'POST':
@@ -19,6 +21,16 @@ def booking_form(request):
             car = form.cleaned_data['car'].id
             start_time = form.cleaned_data['period_start']
             end_time = form.cleaned_data['period_end']
+
+            name = form.cleaned_data['name']
+            surname = form.cleaned_data['surname']
+            nationality = form.cleaned_data['nationality']
+            city = form.cleaned_data['city']
+            address = form.cleaned_data['address']
+            phone_number = form.cleaned_data['phone_number']
+            patent_number = form.cleaned_data['patent_number']
+            insurance = form.cleaned_data['insurance']
+
             booking = form.save(commit=False)
             booking.save()
 
@@ -29,10 +41,18 @@ def booking_form(request):
                 end_date=end_time
             )
 
-            
+            form_data_string = f"Car ID: {car}\nStart Time: {start_time}\nEnd Time: {end_time}\n\nName: {name}\nSurname: {surname}\nNationality: {nationality}\nCity: {city}\n Address: {address}\nPhone Number: {phone_number}\nPatent Number: {patent_number}\nInsurance: {insurance}"
+
+            send_mail(
+                'Booking Form',
+                form_data_string,
+                settings.EMAIL_HOST_USER,
+                ['carrentalolympia@gmail.com'],
+                fail_silently=False
+            )
 
             messages.success(request, "Your booking has been successfully submitted.")
-            return redirect(reverse('booking_confirmation'))  # Redirect to confirmation page
+            return redirect(reverse('booking_confirmation'))
         else:
             for field, errors in form.errors.items():
                 for error in errors:
