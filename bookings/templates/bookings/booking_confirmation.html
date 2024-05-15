@@ -1,0 +1,30 @@
+<!-- booking_confirmation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add necessary meta tags, title, and CSS links -->
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Booking Confirmation</h2>
+        <p>Your booking details:</p>
+        <ul>
+            <li>Name: {{ booking.name }}</li>
+            <li>Surname: {{ booking.surname }}</li>
+            <li>Nationality: {{ booking.nationality }}</li>
+            <li>City: {{ booking.city }}</li>
+            <li>Adress: {{ booking.address }}</li>
+            <li>Phone Number: {{ booking.phone_number }}</li>
+            <li>Patent Number: {{ booking.patent_number }}</li>
+            <li>Insurance: {{ booking.insurance }}</li>
+            <li>Period Start: {{ booking.period_start }}</li>
+            <li>Period End: {{ booking.period_end }}</li>
+            <!-- Add other booking details here -->
+        </ul>
+        <p>Send a Screenshot of this Page to the following number to confirm your order: +355 69 255 2794</p>
+        
+        <!-- Option to book another car -->
+        <a href="{% url 'booking_form' %}" class="btn btn-primary"></a>
+    </div>
+</body>
+</html>

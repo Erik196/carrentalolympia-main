@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Car Rental Olympia</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/blog/img/icon.png" rel="icon">
+  <link href="static/blog/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/blog/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/blog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/blog/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/blog/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/blog/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/blog/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/blog/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <!-- Template Main CSS File -->
+  {% block stylesheets %}
+        <link rel="stylesheet" href="static/blog/css/style.css">
+  {% endblock %}
+
+  <!-- =======================================================
+  * Template Name: Arsha
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top " style="background-color: #0a74b5;">
+    <div class="container d-flex align-items-center" >
+
+      <h1 class="logo me-auto"><a href="#">Car Rental Olympia</a></h1>
+      <!--<a href="#" class="logo me-auto"><img src="static/blog/img/logo.png" alt="" class="img-fluid">edffad</a> -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link   scrollto" href="#portfolio">Vehicle</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="#portfolio" style="background-color: #0a74b5;">Rent Your First Car</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="background-color: #023a77;">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Cruise in Style with Us</h1>
+          <h2>Your Journey Starts Here: Premium Car Rentals at Your Fingertips</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#portfolio" class="btn-get-started scrollto" style="display: inline-block; background-color: #007bff; color: white; padding: 15px 25px; font-size: 18px; text-align: center; text-decoration: none; border-radius: 5px; transition: background-color 0.3s, transform 0.3s;">Rent Your First Car</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="static/blog/img/blue_car1.png" class="img-fluid animated" width="600px" height="1000px" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Discover Available Vehicles Fast</h2>
+          <p>Embark on your rental journey with ease as you peruse our meticulously curated selection of vehicles, 
+            each accompanied by stunning imagery and comprehensive details including make, model, year, and competitive 
+            daily rental rates, ensuring you find the perfect ride to suit your needs and preferences.</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">            
+          {% block content %}
+            <!-- Default content for child templates -->
+          {% endblock %}
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              At Car Rental Olympia, our mission is to revolutionize the car rental experience through:
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Exceptional customer service</li>
+              <li><i class="ri-check-double-line"></i> A diverse fleet of well-maintained vehicles</li>
+              <li><i class="ri-check-double-line"></i> Transparent and hassle-free booking processes</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Join us today and discover why we're the preferred choice for car rentals.
+               Your satisfaction is our priority, and we look forward to serving you soon!
+            </p>
+            <a href="#portfolio" class="btn-learn-more">Rent a Car NOW</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Discover the array of services we provide to enhance your car rental experience.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Car Rental</a></h4>
+              <p>We offer a diverse fleet of vehicles available for short-term and long-term rentals.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Flexible Booking Options</a></h4>
+              <p>Vehicle Maintenance: Our team ensures that all vehicles are regularly serviced and maintained to guarantee safety and reliability on the road.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Customizable Packages</a></h4>
+              <p>Tailor your rental experience with our customizable packages to suit your specific travel requirements.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layer"></i></div>
+              <h4><a href="">Vehicle Maintenance</a></h4>
+              <p>Our team ensures that all vehicles are regularly serviced and maintained to guarantee safety and reliability on the road.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3 style="font-size: 30;">Rent Your First Car</h3>
+            <p style="font-size: 15;"> Ready to hit the road? Take the first step towards your next adventure and press the button below to rent your dream car today! </p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#portfolio">Rent a Car NOW</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>
+            Feel free to reach out to us with any questions or inquiries; we're here to assist you. 
+            Your feedback is invaluable to us as we strive to provide the best possible servic</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch " style="padding-top: 10%; padding-bottom: 10%; display: flex; justify-content: center; align-items: center; text-align: left; height: 100%;">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Olympia Gym Durrës, Rruga Anastas Durrsaku, Durrës 2001</p>
+                <p>Terminali i pasagjereve Durrës, Rruga Doganes, Durrës 2000</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>totosi86@yahoo.it</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+355 69 257 3941</p>
+              </div>
+
+            </div>
+
+          </div>
+        
+          <div class="col-lg-7 mt-5 mt-lg-0  align-items-stretch">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.838239470866!2d19.4424541!3d41.3123825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda4e99676385%3A0xcd0b63b981639a33!2sOlympia%20Gym%20Durr%C3%ABs!5e0!3m2!1sde!2s!4v1712151890690!5m2!1sde!2s" style="border:0; width: 100%; height: 290px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.67809127165!2d19.451874475544237!3d41.31586607130907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda39eb45687b%3A0x16a9c3bd8446a6b4!2sTerminali%20Pasagjereve%20Durres!5e0!3m2!1sde!2s!4v1712516447133!5m2!1sde!2s" style="border:0; width: 100%; height: 290px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Car Rental Olympia</h3>
+            <p>
+              Olympia Gym Durrës, Rruga Anastas Durrsaku, Durrës 2001 <br>
+              Terminali i pasagjereve Durrës, Rruga Doganes, Durrës 2000 <br> <br>
+              <strong>Phone:</strong> +355 69 257 3941<br>
+              <strong>Email:</strong> totosi86@yahoo.it<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Vehicle</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Rent Your First Car</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Car Rental</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Flexible Booking Options</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Customizable Packages</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Vehicle Maintenance</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Connect with us on social media to stay updated on our cars</p>
+            <div class="social-links mt-3">
+              <a href="https://www.facebook.com/totosi.arian" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.booking.com/Share-ZfTcFH" class="booking"><i class="bx bxs-book"></i></a>
+              <a href="https://www.tiktok.com/@durres.rent.car.olympia?_t=8lxNnZrvclZ&_r=1" class="booking"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Car Rental Olympia</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/blog/vendor/aos/aos.js"></script>
+  <script src="static/blog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/blog/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/blog/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/blog/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/blog/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="static/blog/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  {% block scripts %}
+  <script src="static/blog/js/main.js"></script>
+  {% endblock %}
+
+</body>
+
+</html>

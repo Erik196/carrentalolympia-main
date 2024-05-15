@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="row">
+    {% for car in cars %}
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="margin-bottom: 30px;">
+        <div style="border: 2px solid #ddd; border-radius: 5px; height: 100%;">
+            <!-- Swiper slider for all photos including main photo -->
+            <div class="swiper-container" id="swiper-container-{{ car.id }}" style="height: 250px; overflow: hidden;">
+                <div class="swiper-wrapper">
+                    <!-- Main photo as the first slide -->
+                    <div class="swiper-slide" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <img src="{{ car.main_photo.url }}" alt="{{ car.name }}" class="img-fluid swiper-image"
+                            style="object-fit: cover; width: 100%; height: 100%;">
+                    </div>
+                    <!-- Additional photos -->
+                    {% for photo in car.additional_photos.all %}
+                    <div class="swiper-slide" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <img src="{{ photo.photo.url }}" alt="{{ car.name }}" class="img-fluid swiper-image"
+                            style="object-fit: cover; width: 100%; height: 100%;">
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="portofolio-info" style="text-align: center; padding: 15px;">
+                <h4 style="margin-bottom: 10px; font-size: 20px; color: #333;">{{ car.name }} ({{ car.car_type }},  {{ car.fuel_type }})</h4>
+                <a href="{% url 'book_car' %}" class="btn btn-primary" style="margin-bottom: 15px;">Book Now</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- Include Swiper JS and CSS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.swiper-container').forEach(function(node, index){
+            var swiper = new Swiper(node, {
+                loop: true,
+                pagination: {
+                    el: node.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: node.querySelector('.swiper-button-next'),
+                    prevEl: node.querySelector('.swiper-button-prev'),
+                },
+                observer: true, // update Swiper on any mutations
+                observeParents: true, // update Swiper on any mutations in parent elements
+            });
+        });
+    });
+</script>
+{% endblock %}

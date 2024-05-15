@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/fullcalendar@5/main.min.css' rel='stylesheet' />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 500px;
+            margin: 5% auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        button[type="submit"] {
+            width: 100%;
+        }
+        #calendar {
+            margin-top: 20px;
+        }
+
+        /* Updated CSS to hide the spinners, now including the standard appearance property */
+    input[type="number"]::-webkit-inner-spin-button, 
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none; /* Standard property for all browsers */
+        margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield; /* Firefox */
+        appearance: textfield; /* Standard property for all browsers where it's applicable */
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Booking Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_car">Car</label>
+                {{ form.car }}
+            </div>
+            <!-- Additional form fields -->
+            <div class="form-group">
+                <label for="id_name">Name</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_surname">Surname</label>
+                {{ form.surname }}
+            </div>
+            <div class="form-group">
+                <label for="id_nationality">Nationality</label>
+                {{ form.nationality }}
+            </div>
+            <div class="form-group">
+                <label for="id_city">City</label>
+                {{ form.city }}
+            </div>
+            <div class="form-group">
+                <label for="id_address">Address</label>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone_number">Phone Number</label>
+                <input type="number" id="id_phone_number" name="phone_number" required>
+            </div>
+            <div class="form-group">
+                <label for="id_patent_number">Patent Number</label>
+                {{ form.patent_number }}
+            </div>
+            <div class="form-group">
+                <label for="id_insurancer">Insurance</label>
+                {{ form.insurance }}
+            </div>
+            <div class="form-group">
+                <label for="id_period_start">Period Start</label>
+                {{ form.period_start }}
+            </div>
+            <div class="form-group">
+                <label for="id_period_end">Period End</label>
+                {{ form.period_end }}
+            </div>
+            <!-- End additional form fields -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id='calendar'></div> <!-- Div for FullCalendar -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://unpkg.com/fullcalendar@5/main.min.js'></script>
+    <script>
+        $(document).ready(function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [], // Initially no events
+                eventColor: 'blue' // Default color for available dates
+            });
+            calendar.render();
+            var defaultCarId = $('#id_car').val();
+        var startDate = $('#id_period_start').val();
+        var endDate = $('#id_period_end').val();
+            if (defaultCarId && startDate && endDate) {
+            var formattedStartDate = formatDate(new Date(startDate));
+            var formattedEndDate = formatDate(new Date(endDate));
+
+            var url = `/bookings/unavailable-dates/${defaultCarId}/?start_date=${formattedStartDate}&end_date=${formattedEndDate}`;
+
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    renderCalendar(data);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
+                }
+            });
+        }
+            $('#id_car').change(function() {
+                var carId = $(this).val();
+                var startDate = $('#id_period_start').val();
+                var endDate = $('#id_period_end').val();
+        
+                if (carId && startDate && endDate) {
+                    var formattedStartDate = formatDate(new Date(startDate));
+                    var formattedEndDate = formatDate(new Date(endDate));
+        
+                    var url = `/bookings/unavailable-dates/${carId}/?start_date=${formattedStartDate}&end_date=${formattedEndDate}`;
+        
+                    $.ajax({
+                        url: url,
+                        success: function(data) {
+                            renderCalendar(data);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
+                        }
+                    });
+                } else {
+                    calendar.removeAllEvents(); // Clear the calendar if no valid car or dates
+                    calendar.render();
+                }
+            });
+        
+            // Function to render busy dates in the calendar
+            function renderCalendar(busyDates) {
+                calendar.removeAllEvents(); // Clears existing events before adding new ones
+                
+                busyDates.forEach(function(date) {
+                    var startDate = new Date(date.start);
+                    var endDate = new Date(date.end);
+
+                    // Iterate over each day in the busy period
+                    var currentDate = new Date(startDate); 
+                    while (currentDate <= endDate) {
+                        calendar.addEvent({
+                            title: 'Busy',
+                            start: currentDate,
+                            color: 'red', // Specific color for busy dates
+                            allDay: true
+                        });
+
+                        // Move to the next day
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                });
+
+    calendar.render(); // Re-render the calendar to show new events
+}
+
+        
+            function formatDate(date) {
+                var year = date.getFullYear();
+                var month = (date.getMonth() + 1).toString().padStart(2, '0');
+                var day = date.getDate().toString().padStart(2, '0');
+                return year + "-" + month + "-" + day;
+            }
+        });
+        </script>
+
+        
+        
+    
+</body>
+</html>
